@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>a small thing i made</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="particle-field" id="particleField" aria-hidden="true"></div>
+
+      <!-- ============ SCREEN 1: LANDING ============ -->
+      <section class="screen active" id="screen-landing" data-index="0">
+        <div class="card">
+          <div class="panda-wrap mood-neutral" id="panda-landing">
+            <img src="images/panda1.png" alt="" height="150" width="150" />
+          </div>
+          <p class="eyebrow reveal-line" style="animation-delay: 0.05s">
+            <span data-fill="recipientName">you</span>
+          </p>
+          <h1 class="headline reveal-line" style="animation-delay: 0.15s">
+            Heyy 👀
+          </h1>
+          <p class="subtext reveal-line" style="animation-delay: 0.28s">
+            I made something for you…
+          </p>
+          <p class="whisper reveal-line" style="animation-delay: 0.42s">
+            Okay, maybe this is a little random.<br />But you already opened it,
+            so you can't leave now :)
+          </p>
+          <div class="btn-row reveal-line" style="animation-delay: 0.56s">
+            <button class="btn btn-primary" data-next="screen-curiosity">
+              Okay, show me →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 2: CURIOSITY ============ -->
+      <section class="screen" id="screen-curiosity" data-index="1">
+        <div class="card">
+          <div class="panda-wrap mood-shy" id="panda-curiosity">
+            <img src="images/panda2.png" alt="" height="150" width="150" />
+          </div>
+          <h2 class="headline reveal-line" style="animation-delay: 0.05s">
+            Okay… this is slightly embarrassing.
+          </h2>
+          <p class="subtext reveal-line" style="animation-delay: 0.2s">
+            I could've just texted you…
+          </p>
+          <p class="subtext reveal-line" style="animation-delay: 0.4s">
+            …but that would've been way too normal.
+          </p>
+          <p class="whisper reveal-line" style="animation-delay: 0.6s">
+            So I made this instead. 😭
+          </p>
+          <div class="btn-row reveal-line" style="animation-delay: 0.75s">
+            <button class="btn btn-primary" data-next="screen-reveal">
+              Continue →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 3: REVEAL ============ -->
+      <section class="screen" id="screen-reveal" data-index="2">
+        <div class="card">
+          <p class="eyebrow reveal-line" style="animation-delay: 0.05s">
+            a small confession
+          </p>
+          <h2 class="headline reveal-line" style="animation-delay: 0.15s">
+            So… there's actually a reason I made this.
+          </h2>
+          <div class="panda-wrap mood-shy" id="panda-reveal">
+            <img src="images/panda3.png" alt="" height="150" width="150" />
+          </div>
+          <p class="subtext reveal-line" style="animation-delay: 0.3s">
+            I think you're really cute & nice…
+          </p>
+          <p class="subtext reveal-line" style="animation-delay: 0.5s">
+            …and I'd like to get to know you a little better.
+          </p>
+          <p class="whisper reveal-line" style="animation-delay: 0.7s">
+            So I wanted to ask you something.
+          </p>
+          <div class="btn-row reveal-line" style="animation-delay: 0.85s">
+            <button class="btn btn-primary" data-next="screen-question">
+              Ask me →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 4: THE QUESTION ============ -->
+      <section class="screen" id="screen-question" data-index="3">
+        <div class="card">
+          <div class="question-card">
+            <h2 class="headline" style="margin-bottom: 6px">
+              Would you like to hang out sometime? :)
+            </h2>
+            <p class="subtext" style="margin-bottom: 18px">
+              Coffee? A movie? A walk? You get to choose.
+            </p>
+
+            <div class="choice-row" id="choiceRow">
+              <div
+                class="choice"
+                data-choice="Coffee"
+                tabindex="0"
+                role="button"
+                aria-pressed="false"
+              >
+                <span class="emoji">☕</span> Coffee
+              </div>
+              
+              <div
+                class="choice"
+                data-choice="Walk"
+                tabindex="0"
+                role="button"
+                aria-pressed="false"
+              >
+                <span class="emoji">🧑‍🤝‍🧑</span> Walk
+              </div>
+            </div>
+
+            <p
+              class="whisper"
+              id="choiceEcho"
+              style="margin-top: 16px; min-height: 1.3em"
+            ></p>
+
+            <div class="confirm-row" id="confirmRow">
+          
+              <div class="btn-row">
+                <button class="btn btn-primary" id="btnYes">
+                  YES, let's do it →
+                </button>
+                <button class="btn btn-ghost" id="btnMaybe">
+                  No!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 5: YES ============ -->
+      <section class="screen" id="screen-yes" data-index="4">
+        <div class="card">
+          <div class="panda-wrap celebrate mood-cele" id="panda-yes">
+            <img src="images/panda4.png" alt="" height="150" width="150" />
+          </div>
+          <h2 class="headline reveal-line" style="animation-delay: 0.05s">
+            WAIT… really? 👀
+          </h2>
+          <p class="subtext reveal-line" style="animation-delay: 0.25s">
+            Okay, now I'm smiling like an idiot.
+          </p>
+          <p class="subtext reveal-line" style="animation-delay: 0.45s">
+            Let's actually make it happen.
+          </p>
+          <p class="whisper reveal-line" style="animation-delay: 0.65s">
+            Tell me what works for you :)
+          </p>
+          <div class="btn-row reveal-line" style="animation-delay: 0.8s">
+            <button class="btn btn-primary" id="instagramBtn">
+              Message <span data-fill="senderName">me</span> on Instagram
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 6: MAYBE / NO ============ -->
+      <section class="screen" id="screen-maybe" data-index="5">
+        <div class="card">
+          <div class="panda-wrap mood-oops" id="panda-maybe">
+            <img src="images/panda5.png" alt="" height="150" width="150" />
+          </div>
+          <h2 class="headline reveal-line" style="animation-delay: 0.05s">
+            Fair enough :)
+          </h2>
+          <p class="subtext reveal-line" style="animation-delay: 0.25s">
+            No awkwardness, promise.
+          </p>
+          <p class="whisper reveal-line" style="animation-delay: 0.45s">
+            Thanks for giving me an honest answer.
+          </p>
+          <div class="btn-row reveal-line" style="animation-delay: 0.6s">
+            <button class="btn btn-ghost" data-next="screen-bye">
+              Close this very questionable website
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 7: PEACEFUL CLOSE ============ -->
+      <section class="screen" id="screen-bye" data-index="6">
+        <div class="card">
+          <div class="panda-wrap mood-neutral" id="panda-bye">
+            <img src="images/panda6.png" alt="" height="150" width="150" />
+          </div>
+          <p class="subtext reveal-line" style="animation-delay: 0.1s; margin-top: 15px">
+            All good. Take care 🌿
+          </p>
+        </div>
+      </section>
+
+      <div class="progress" id="progressDots" aria-hidden="true"></div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
